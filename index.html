@@ -10,7 +10,25 @@
 
 <body>
     <div class="box2">
-        <div class="form"></div>
+        <div class="form">
+            <h2>Contador de Ciclos</h2>
+            <div class="inputBox">
+                <input type="date">
+                <span>Data início do Leilão</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="number" required="required">
+                <span>Intervalo entre os dias</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="number" required="required" min="1">
+                <span>Quantidade de Ciclos</span>
+                <i></i>
+            </div>
+            <input type="submit" value="Gerar datas">
+        </div>
     </div>
     <section>
         <div class="box">
@@ -19,7 +37,7 @@
             </div>
         </div>
     </section>
-    
+
     <script src="dycalendar.js"></script>
     <script>
         dycalendar.draw({
