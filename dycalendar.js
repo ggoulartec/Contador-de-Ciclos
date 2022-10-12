@@ -31,7 +31,7 @@
 
         //name of the months
         monthName = {
-            full: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            full: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             mmm: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         },
 
@@ -62,7 +62,7 @@
         //create 1st row for the day letters
         for (c = 0; c <= 6; c = c + 1) {
             td = document.createElement("td");
-            td.innerHTML = "SMTWTFS"[c];
+            td.innerHTML = "DSTQQSS"[c];
             tr.appendChild(td);
         }
         table.appendChild(tr);
