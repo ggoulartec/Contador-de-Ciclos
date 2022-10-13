@@ -10,25 +10,26 @@
 
 <body>
     <div class="box2">
-        <div class="form">
+        <ul class="form lista none"></ul>
+        <form class="form">
             <h2>Contador de Ciclos</h2>
             <div class="inputBox">
-                <input type="date">
-                <span>Data início do Leilão</span>
+                <input type="date" name="data_inicial" required="required" style="z-index: 1">
+                <span style="z-index: 1">Data início do Leilão</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="number" required="required">
+                <input type="number" name="intevalo_ciclos" required="required">
                 <span>Intervalo entre os dias</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="number" required="required" min="1">
+                <input type="number" name="quantidade_ciclos" required="required" min="1">
                 <span>Quantidade de Ciclos</span>
                 <i></i>
             </div>
             <input type="submit" value="Gerar datas">
-        </div>
+        </form>
     </div>
     <section>
         <div class="box">
@@ -44,10 +45,69 @@
             target: '#dycalendar',
             type: 'month',
             dayformat: 'full',
-            highlighttargetdate: true,
+            // highlighttargetdate: true,
             prevnextbutton: 'show'
         })
+
+        const formulario = document.querySelector('form');
+        const calendario = document.querySelectorAll('tbody tr td');
+        const data_inicial = document.querySelector('input[name="data_inicial"]')
+        const lista = document.querySelector('.lista')
+
+        const validacao = ['D', 'S', 'T', 'Q']
+        formulario.addEventListener('submit', e => {
+            e.preventDefault()
+            var data = new FormData(formulario);
+            fetch("/backend", {
+                method: "post",
+                body: data
+            }).then(res => {
+                return res.json()
+            }).then(res => {
+                if (res.status == false) {
+                    alert(res.message)
+                }
+
+                formulario.classList.add('none')
+                lista.classList.remove('none')
+
+                calendario.forEach((element, key) => {
+                    if (!validacao.includes(element.innerText) && element.innerText.trim()) {
+                        res.forEach((data, key) => {
+                            if (data.datas_acrecimos) {
+                                if (data.datas_acrecimos.split('-')[1] == data_inicial.value.split('-')[1]) {
+                                    if (element.innerText == data.datas_acrecimos.split('-')[2]) {
+                                        element.classList.add('dycalendar-target-date');
+                                    }
+                                }
+                            } else {
+                                if (data.datas_sem_acrecimos.split('-')[1] == data_inicial.value.split('-')[1]) {
+                                    if (element.innerText == data.datas_sem_acrecimos.split('-')[2]) {
+                                        element.classList.add('dycalendar-target-date');
+                                    }
+                                }
+                            }
+                        })
+                    }
+                })
+
+                res.forEach((data, key) => {
+                    const li = document.createElement('li');
+                    const texto = (key == 0) ? "Data Inicial" : "Data: ";
+                    if (data.datas_acrecimos) {
+                        li.innerText = texto + data.datas_sem_acrecimos + "  " + "Adiado para o próximo dia útil: " + data.datas_acrecimos;
+                        lista.append(li);
+                    } else {
+                        li.innerText = texto + data.datas_sem_acrecimos;
+                        lista.append(li);
+                    }
+                })
+
+            })
+        })
+
     </script>
+
 </body>
 
 </html>
