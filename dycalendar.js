@@ -1,22 +1,8 @@
-/*!
- * dyCalendar is a JavaScript library for creating Calendar.
- *
- * Author: Yusuf Shakeel
- * https://github.com/yusufshakeel
- *
- * GitHub Link: https://github.com/yusufshakeel/dyCalendarJS
- *
- * MIT license
- * Copyright (c) 2016 Yusuf Shakeel
- *
- * Date: 2014-08-17 sunday
- */
-/*! dyCalendarJS | (c) 2016 Yusuf Shakeel | https://github.com/yusufshakeel/dyCalendarJS */
 (function (global) {
 
     "use strict";
 
-    var
+    let
         //this will be used by the user.
         dycalendar = {},
 
@@ -52,7 +38,7 @@
      */
     function createMonthTable(data, option) {
 
-        var
+        let
             table, tr, td,
             r, c, count;
 
@@ -130,7 +116,7 @@
      */
     function drawCalendarMonthTable(data, option) {
 
-        var
+        let
             table,
             div, container, elem;
 
@@ -212,7 +198,7 @@
      */
     function drawCalendarDay(data, option) {
 
-        var
+        let
             div, container, elem;
 
         //calendar container
@@ -290,7 +276,7 @@
      * @return object
      */
     function extendSource(source, defaults) {
-        var property;
+        let property;
         for (property in defaults) {
             if (source.hasOwnProperty(property) === false) {
                 source[property] = defaults[property];
@@ -311,7 +297,7 @@
      */
     function getCalendar(year, month, date) {
 
-        var
+        let
             dateObj = new Date(),
             dateString,
             result = {},
@@ -399,7 +385,7 @@
             //get event object (window.event for IE compatibility)
             e = global.event || e;
 
-            var
+            let
                 //get target dom object reference
                 targetDomObject = e.target || e.srcElement,
 
@@ -481,7 +467,7 @@
             return false;
         }
 
-        var
+        let
             self = this,    //pointing at dycalendar object
 
             dateObj = new Date(),
@@ -513,7 +499,7 @@
      */
     function drawCalendar(option) {
 
-        var
+        let
             //variables for creating calendar
             calendar,
             calendarHTML,
