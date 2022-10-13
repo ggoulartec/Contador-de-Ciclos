@@ -196,6 +196,15 @@ body {
     letter-spacing: 0.1em;
 }
 
+ul li .lista {
+    color: #45f3ff;
+    font-size: x-large;
+}
+
+.none {
+    display: none;
+}
+
 .inputBox {
     position: relative;
     width: 300px;
@@ -274,6 +283,7 @@ input[type="submit"]:hover {
     section::before {
         transform: translate(-90px, -225px);
     }
+
     section::after {
         transform: translate(540px, -125px);
     }
@@ -283,6 +293,7 @@ input[type="submit"]:hover {
     section::before {
         transform: translate(-240px, -130px);
     }
+
     section::after {
         transform: translate(685px, -220px);
     }
