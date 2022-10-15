@@ -1,6 +1,6 @@
 .dycalendar-container {
     display: inline-block;
-    border : 1px solid #eee;
+    border: 1px solid #eee;
 }
 
 .dycalendar-container.round-edge {
@@ -17,26 +17,26 @@
  * day calendar style
  *-------------------------------------------------*/
 .dycalendar-day-container {
-    padding : 10px;
-    text-align : center;
-    font-family : Arial;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial;
 }
 
-.dycalendar-day-container div{
-    padding : 0;
-    margin-bottom : 10px;
+.dycalendar-day-container div {
+    padding: 0;
+    margin-bottom: 10px;
 }
 
 .dycalendar-day-container .dycalendar-span-day {
-    font-size : 110%;
+    font-size: 110%;
 }
 
 .dycalendar-day-container .dycalendar-span-date {
-    font-size : 250%;
+    font-size: 250%;
 }
 
 .dycalendar-day-container .dycalendar-span-month-year {
-    font-size : 90%
+    font-size: 90%
 }
 
 /*================================== DAY CALENDAR ENDS HERE ===============*/
@@ -49,47 +49,47 @@
  * month calendar style
  *-------------------------------------------------*/
 .dycalendar-month-container {
-    padding : 10px;
-    text-align : center;
-    font-family : Arial;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial;
 }
 
-.dycalendar-month-container div{
-    padding : 0;
-    margin-bottom : 10px;
+.dycalendar-month-container div {
+    padding: 0;
+    margin-bottom: 10px;
 }
 
 .dycalendar-month-container .dycalendar-header {
-    position : relative;
+    position: relative;
 }
 
 .dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn {
-    position : absolute;
-    top : 0;
-    cursor : pointer;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
 }
 
 .dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.prev-btn {
-    left : 0;
+    left: 0;
 }
 
 .dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.next-btn {
-    right : 0;
+    right: 0;
 }
 
 .dycalendar-month-container .dycalendar-span-month-year {
-    margin : 5px;
-    cursor : pointer;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .dycalendar-month-container .dycalendar-body table tr td {
-    padding : 5px;
+    padding: 5px;
 }
 
 .dycalendar-month-container .dycalendar-today-date,
 .dycalendar-month-container .dycalendar-target-date {
     background-color: #111;
-    color : #fff;
+    color: #fff;
     border-radius: 2px;
 }
 
@@ -114,9 +114,9 @@
  * calendar skin  (skin-black)
  *-------------------------------------------------*/
 .dycalendar-container.skin-black {
-    color : #fff;
+    color: #fff;
     background-color: #111;
-    border : 0;
+    border: 0;
 }
 
 .dycalendar-container.skin-black.gradient {
@@ -130,7 +130,7 @@
 .dycalendar-container.skin-black .dycalendar-today-date,
 .dycalendar-container.skin-black .dycalendar-target-date {
     background-color: #fff;
-    color : #111;
+    color: #111;
     border-radius: 2px;
 }
 
@@ -138,9 +138,9 @@
  * calendar skin  (skin-blue)
  *-------------------------------------------------*/
 .dycalendar-container.skin-blue {
-    color : #fff;
+    color: #fff;
     background-color: #3c99d3;
-    border : 0;
+    border: 0;
 }
 
 .dycalendar-container.skin-blue.gradient {
@@ -154,7 +154,7 @@
 .dycalendar-container.skin-blue .dycalendar-today-date,
 .dycalendar-container.skin-blue .dycalendar-target-date {
     background-color: #fff;
-    color : #3c99d3;
+    color: #3c99d3;
     border-radius: 2px;
 }
 
@@ -162,9 +162,9 @@
  * calendar skin  (skin-green)
  *-------------------------------------------------*/
 .dycalendar-container.skin-green {
-    color : #fff;
+    color: #fff;
     background-color: #2bb063;
-    border : 0;
+    border: 0;
 }
 
 .dycalendar-container.skin-green.gradient {
@@ -178,7 +178,7 @@
 .dycalendar-container.skin-green .dycalendar-today-date,
 .dycalendar-container.skin-green .dycalendar-target-date {
     background-color: #fff;
-    color : #2bb063;
+    color: #2bb063;
     border-radius: 2px;
 }
 
@@ -186,9 +186,9 @@
  * calendar skin  (skin-purple)
  *-------------------------------------------------*/
 .dycalendar-container.skin-purple {
-    color : #fff;
+    color: #fff;
     background-color: #975ea4;
-    border : 0;
+    border: 0;
 }
 
 .dycalendar-container.skin-purple.gradient {
@@ -202,7 +202,7 @@
 .dycalendar-container.skin-purple .dycalendar-today-date,
 .dycalendar-container.skin-purple .dycalendar-target-date {
     background-color: #fff;
-    color : #975ea4;
+    color: #975ea4;
     border-radius: 2px;
 }
 
@@ -210,9 +210,9 @@
  * calendar skin  (skin-red)
  *-------------------------------------------------*/
 .dycalendar-container.skin-red {
-    color : #fff;
+    color: #fff;
     background-color: #e94d40;
-    border : 0;
+    border: 0;
 }
 
 .dycalendar-container.skin-red.gradient {
@@ -226,7 +226,7 @@
 .dycalendar-container.skin-red .dycalendar-today-date,
 .dycalendar-container.skin-red .dycalendar-target-date {
     background-color: #fff;
-    color : #e94d40;
+    color: #e94d40;
     border-radius: 2px;
 }
 
@@ -234,9 +234,9 @@
  * calendar skin  (skin-spacegray)
  *-------------------------------------------------*/
 .dycalendar-container.skin-spacegray {
-    color : #fff;
+    color: #fff;
     background-color: #343d46;
-    border : 0;
+    border: 0;
 }
 
 .dycalendar-container.skin-spacegray.gradient {
@@ -250,7 +250,7 @@
 .dycalendar-container.skin-spacegray .dycalendar-today-date,
 .dycalendar-container.skin-spacegray .dycalendar-target-date {
     background-color: #fff;
-    color : #343d46;
+    color: #343d46;
     border-radius: 2px;
 }
 
@@ -261,14 +261,14 @@
 /*
  * calendar shadow  (shadow-default)
  *-------------------------------------------------*/
- .dycalendar-container.shadow-default {
-     -o-box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
-     -moz-box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
-     -webkit-box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
-     box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
- }
+.dycalendar-container.shadow-default {
+    -o-box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+    -moz-box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+    box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+}
 
- /*
+/*
   * calendar shadow  (shadow-black)
   *-------------------------------------------------*/
 .dycalendar-container.shadow-black {
@@ -282,50 +282,50 @@
  * calendar shadow  (shadow-blue)
  *-------------------------------------------------*/
 .dycalendar-container.shadow-blue {
-   -o-box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
-   -moz-box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
-   -webkit-box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
-   box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
+    -o-box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
+    -moz-box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
+    box-shadow: 0 4px 4px 0 rgba(60, 153, 211, 0.4);
 }
 
 /*
  * calendar shadow  (shadow-green)
  *-------------------------------------------------*/
 .dycalendar-container.shadow-green {
-   -o-box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
-   -moz-box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
-   -webkit-box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
-   box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
+    -o-box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
+    -moz-box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
+    box-shadow: 0 4px 4px 0 rgba(43, 176, 99, 0.4);
 }
 
 /*
  * calendar shadow  (shadow-purple)
  *-------------------------------------------------*/
 .dycalendar-container.shadow-purple {
-   -o-box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
-   -moz-box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
-   -webkit-box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
-   box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
+    -o-box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
+    -moz-box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
+    box-shadow: 0 4px 4px 0 rgba(151, 94, 164, 0.4);
 }
 
 /*
  * calendar shadow  (shadow-red)
  *-------------------------------------------------*/
 .dycalendar-container.shadow-red {
-   -o-box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
-   -moz-box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
-   -webkit-box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
-   box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
+    -o-box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
+    -moz-box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
+    box-shadow: 0 4px 4px 0 rgba(233, 77, 64, 0.4);
 }
 
 /*
  * calendar shadow  (shadow-spacegray)
  *-------------------------------------------------*/
 .dycalendar-container.shadow-spacegray {
-   -o-box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
-   -moz-box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
-   -webkit-box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
-   box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
+    -o-box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
+    -moz-box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
+    box-shadow: 0 4px 4px 0 rgba(52, 61, 70, 1);
 }
 
 /*================================== DYCALENDAR SHADOW ENDS HERE ===========*/
