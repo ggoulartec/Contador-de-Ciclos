@@ -245,7 +245,7 @@ ul li {
     font-size: 0.75em;
 }
 
-.inputBox i {
+.inputBox em {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -257,8 +257,8 @@ ul li {
     pointer-events: none;
 }
 
-.inputBox input:valid~i,
-.inputBox input:focus~i {
+.inputBox input:valid~em,
+.inputBox input:focus~em {
     height: 44px;
 }
 
