@@ -6,7 +6,14 @@ $quantidade_ciclos = isset($_POST['quantidade_ciclos']) ? $_POST['quantidade_cic
 
 if (!$data_inicial || !$intevalo_ciclos || !$quantidade_ciclos) {
     $data['status'] = false;
-    $data['message'] = "Preencha todos os campos";
+    $data['message'] = "Preencha todos os campos!";
+    echo json_encode($data);
+    exit;
+}
+
+if($intevalo_ciclos < 0 || $quantidade_ciclos < 0) {
+    $data['status'] = false;
+    $data['message'] = "Valores negativos não são validos!";
     echo json_encode($data);
     exit;
 }

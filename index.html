@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <title>Glassmorphism Calendar | dyCalendarJS</title>
+    <title>Calendario</title>
     <link rel="stylesheet" href="dycalendar.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -44,74 +45,65 @@
     </section>
 
     <script src="dycalendar.js"></script>
-    <script>
-        dycalendar.draw({
-            target: '#dycalendar',
-            type: 'month',
-            dayformat: 'full',
-            // highlighttargetdate: true,
-            prevnextbutton: 'show'
-        })
+    
+    <script> 
+        (async () => {
+            dycalendar.draw({target: '#dycalendar',type: 'month',dayformat: 'full',prevnextbutton: 'show'})
+            
+            const calendario   = document.querySelector("#dycalendar");
+            const formulario   = document.querySelector('form');
 
-        const formulario = document.querySelector('form');
-        const calendario = document.querySelectorAll('tbody tr td');
-        const data_inicial = document.querySelector('input[name="data_inicial"]')
-        const lista = document.querySelector('.lista')
+            const marcacao = (person) => {
+                const validacao         = ['D', 'S', 'T', 'Q']
+                const tdAll             = document.querySelectorAll('tbody tr td');
+                const calendario_header = document.querySelector('.dycalendar-header');
+                const options           = JSON.parse(calendario_header.getAttribute("data-option"));
+                const lista             = document.querySelector('.lista');
+                lista.innerText         = "";
 
-        const validacao = ['D', 'S', 'T', 'Q']
-        formulario.addEventListener('submit', e => {
-            e.preventDefault()
-            var data = new FormData(formulario);
-            fetch("/backend", {
-                method: "post",
-                body: data
-            }).then(res => {
-                return res.json()
-            }).then(res => {
-                if (res.status == false) {
-                    alert(res.message)
+                tdAll.forEach((element, key) => {
+                    if (!validacao.includes(element.innerText) && element.innerText.trim()) {
+                        const data = person.map((data, key) => {
+                            const dia   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[2] : data.datas_sem_acrecimos.split('-')[2];
+                            const mes   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[1] : data.datas_sem_acrecimos.split('-')[1];
+                            const ano   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[0] : data.datas_sem_acrecimos.split('-')[0];
+                       
+                            if (element.innerText.padStart(2,'0') == dia && (options.month + 1) == mes && options.year == ano) {
+                                const li     = document.createElement('li');
+                                li.innerText = "Data: " + `${dia}-${mes}-${ano}`;
+                                lista.append(li);
+                                return true;
+                            } else { return false };
+                        }).filter(data => data);
+
+                        if(data.length != 0) element.classList.add('dycalendar-target-date');
+                    }
+                })  
+            }
+
+            formulario.addEventListener('submit',async event => {
+                event.preventDefault();
+
+                const data      = new FormData(formulario);
+                const response  = await fetch("/backend", { method: "post", body: data });
+                const person    = await response.json();
+                const lista      = document.querySelector('.lista');
+
+                if (person.status == false) {
+                    alert(person.message)
                 }
 
-                formulario.classList.add('none')
-                lista.classList.remove('none')
+                formulario.classList.add('none');
+                lista.classList.remove('none');
 
-                calendario.forEach((element, key) => {
-                    if (!validacao.includes(element.innerText) && element.innerText.trim()) {
-                        res.forEach((data, key) => {
-                            if (data.datas_acrecimos) {
-                                if (data.datas_acrecimos.split('-')[1] == data_inicial.value.split('-')[1]) {
-                                    if (element.innerText == data.datas_acrecimos.split('-')[2]) {
-                                        element.classList.add('dycalendar-target-date');
-                                    }
-                                }
-                            } else {
-                                if (data.datas_sem_acrecimos.split('-')[1] == data_inicial.value.split('-')[1]) {
-                                    if (element.innerText == data.datas_sem_acrecimos.split('-')[2]) {
-                                        element.classList.add('dycalendar-target-date');
-                                    }
-                                }
-                            }
-                        })
-                    }
-                })
+                marcacao(person);
 
-                res.forEach((data, key) => {
-                    const li = document.createElement('li');
-                    const texto = (key == 0) ? "Data Inicial" : "Data: ";
-                    if (data.datas_acrecimos) {
-                        li.innerText = texto + data.datas_sem_acrecimos + "  " + "Adiado para o próximo dia útil: " + data.datas_acrecimos;
-                        lista.append(li);
-                    } else {
-                        li.innerText = texto + data.datas_sem_acrecimos;
-                        lista.append(li);
-                    }
-                })
+                const observer = new MutationObserver(mutation => { marcacao(person); });
 
+                observer.observe(calendario, {childList: true})
             })
-        })
-
+        })();
     </script>
-
 </body>
 
 </html>
