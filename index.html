@@ -6,7 +6,12 @@
     <title>Calendario</title>
     <link rel="stylesheet" href="dycalendar.css">
     <link rel="stylesheet" href="style.css">
-
+    <style>
+        .dycalendar-target-date-red {
+            background: red;
+            color: #FFF !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +19,19 @@
     <div class="box2">
         <div class="container-lista">
             <!-- <button>X</button> -->
-            <ul class="form lista none"></ul>
+            <ul class="form lista none" style="
+                overflow-x: auto;
+            "></ul>
+            <button id="close" style="
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                color: #000;
+                z-index: 10;
+                cursor: pointer;
+                width: 82px;
+                height: 40px;
+            ">voltar</button>
         </div>
         <form class="form">
             <h2>Contador de Ciclos</h2>
@@ -53,32 +70,39 @@
             const calendario   = document.querySelector("#dycalendar");
             const formulario   = document.querySelector('form');
 
-            const marcacao = (person) => {
+            const validacaoData = (dt) => {
                 const validacao         = ['D', 'S', 'T', 'Q']
                 const tdAll             = document.querySelectorAll('tbody tr td');
                 const calendario_header = document.querySelector('.dycalendar-header');
                 const options           = JSON.parse(calendario_header.getAttribute("data-option"));
-                const lista             = document.querySelector('.lista');
-                lista.innerText         = "";
+                const tds               = Array.from(tdAll).filter((td) => (!validacao.includes(td.innerText) && td.innerText.trim()))
 
-                tdAll.forEach((element, key) => {
-                    if (!validacao.includes(element.innerText) && element.innerText.trim()) {
-                        const data = person.map((data, key) => {
-                            const dia   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[2] : data.datas_sem_acrecimos.split('-')[2];
-                            const mes   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[1] : data.datas_sem_acrecimos.split('-')[1];
-                            const ano   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[0] : data.datas_sem_acrecimos.split('-')[0];
-                       
-                            if (element.innerText.padStart(2,'0') == dia && (options.month + 1) == mes && options.year == ano) {
-                                const li     = document.createElement('li');
-                                li.innerText = "Data: " + `${dia}-${mes}-${ano}`;
-                                lista.append(li);
-                                return true;
-                            } else { return false };
-                        }).filter(data => data);
+                const dia = dt.split('-')[2];
+                const mes = dt.split('-')[1];
+                const ano = dt.split('-')[0];
 
-                        if(data.length != 0) element.classList.add('dycalendar-target-date');
+                const data = tds.map(element => {
+                    if(element.innerText.padStart(2,'0') == dia && (options.month + 1) == mes && options.year == ano){ return element;
+                    }else{ return false; }
+                }).filter(data => data);
+                
+                return data;
+            }
+
+            const marcacao = (person) => {
+                person.forEach((data) => {
+                    if(Object.keys(data).length == 2){
+                        for (let index = 0; index < Object.keys(data).length; index++){
+                            if(Object.keys(data)[index] == "datas_acrecimos"){
+                                const element = validacaoData(data.datas_acrecimos);
+                                if(element.length != 0) element[0].classList.add("dycalendar-target-date-red");
+                            }
+                        }
+                    }else{
+                        const element = validacaoData(data.datas_sem_acrecimos);
+                        if(element.length != 0) element[0].classList.add("dycalendar-target-date");
                     }
-                })  
+                })
             }
 
             formulario.addEventListener('submit',async event => {
@@ -87,7 +111,7 @@
                 const data      = new FormData(formulario);
                 const response  = await fetch("/backend", { method: "post", body: data });
                 const person    = await response.json();
-                const lista      = document.querySelector('.lista');
+                const lista     = document.querySelector('.lista');
 
                 if (person.status == false) {
                     alert(person.message)
@@ -95,12 +119,31 @@
 
                 formulario.classList.add('none');
                 lista.classList.remove('none');
+                lista.innerHTML = "";
 
+                person.forEach(data => {
+                    const dia   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[2] : data.datas_sem_acrecimos.split('-')[2];
+                    const mes   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[1] : data.datas_sem_acrecimos.split('-')[1];
+                    const ano   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[0] : data.datas_sem_acrecimos.split('-')[0];
+                    const li  = document.createElement('li');
+                    li.innerText = "Data: " + `${dia}-${mes}-${ano}`;
+                    lista.append(li);
+                })
+               
                 marcacao(person);
 
                 const observer = new MutationObserver(mutation => { marcacao(person); });
 
                 observer.observe(calendario, {childList: true})
+            })
+
+            const close = document.querySelector("#close");
+            close.addEventListener("click",function(){
+                const formulario = document.querySelector('form');
+                const lista = document.querySelector('.lista');
+                formulario.classList.remove('none');
+                lista.classList.add('none');
+                window.location.href = "/";
             })
         })();
     </script>

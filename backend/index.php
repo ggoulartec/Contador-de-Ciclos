@@ -29,24 +29,26 @@ function generateDate($data_inicial, $nu_ciclos, $nu_prazo)
 
     $datas = array();
 
-    foreach ($prazo as $data) {
-        $diasemana_numero  = date('w', strtotime($data->format('Y-m-d')));
-        $dados = array();
-        $dados["datas_sem_acrecimos"] = $data->format('Y-m-d');
+    foreach ($prazo as $chave => $data) {
+        if($chave != 0):
+            $diasemana_numero  = date('w', strtotime($data->format('Y-m-d')));
+            $dados = array();
+            $dados["datas_sem_acrecimos"] = $data->format('Y-m-d');
 
-        if ($diasemana[$diasemana_numero] == "Sabado") :
-            $newDate = new DateTime($dados["datas_sem_acrecimos"]);
-            $newDate->add(new DateInterval('P2D'));
-            $dados["datas_acrecimos"] = $newDate->format('Y-m-d');
+            if ($diasemana[$diasemana_numero] == "Sabado") :
+                $newDate = new DateTime($dados["datas_sem_acrecimos"]);
+                $newDate->add(new DateInterval('P2D'));
+                $dados["datas_acrecimos"] = $newDate->format('Y-m-d');
+            endif;
+
+            if ($diasemana[$diasemana_numero] == "Domingo") :
+                $newDate = new DateTime($dados["datas_sem_acrecimos"]);
+                $newDate->add(new DateInterval('P1D'));
+                $dados["datas_acrecimos"] = $newDate->format('Y-m-d');
+            endif;
+
+            $datas[] = $dados;
         endif;
-
-        if ($diasemana[$diasemana_numero] == "Domingo") :
-            $newDate = new DateTime($dados["datas_sem_acrecimos"]);
-            $newDate->add(new DateInterval('P1D'));
-            $dados["datas_acrecimos"] = $newDate->format('Y-m-d');
-        endif;
-
-        $datas[] = $dados;
     }
     return $datas;
 };
