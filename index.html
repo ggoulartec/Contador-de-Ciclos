@@ -1,74 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang = "pt-BR">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset = "UTF-8">
     <title>Calendario</title>
-    <link rel="stylesheet" href="dycalendar.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel = "stylesheet" href = "dycalendar.css">
+    <link rel = "stylesheet" href = "style.css">
     <style>
         .dycalendar-target-date-red {
             background: red;
-            color: #FFF !important;
+            color     : #FFF !important;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="box2">
-        <div class="container-lista">
+    <div class = "box2">
+    <div class = "container-lista">
             <!-- <button>X</button> -->
             <ul class="form lista none" style="
                 overflow-x: auto;
             "></ul>
             <button id="close" style="
                 position: absolute;
-                top: 0px;
-                right: 0px;
-                color: #000;
-                z-index: 10;
-                cursor: pointer;
-                width: 82px;
-                height: 40px;
+                top     : 0px;
+                right   : 0px;
+                color   : #000;
+                z-index : 10;
+                cursor  : pointer;
+                width   : 82px;
+                height  : 40px;
             ">voltar</button>
         </div>
-        <form class="form">
+        <form class = "form">
             <h2>Contador de Ciclos</h2>
-            <div class="inputBox">
-                <input type="date" name="data_inicial" required="required" style="z-index: 1">
-                <span style="z-index: 1">Data início do Leilão</span>
+            <div   class = "inputBox">
+            <input type  = "date" name = "data_inicial" required = "required" style = "z-index: 1">
+            <span  style = "z-index: 1">Data início do Leilão</span>
                 <em></em>
             </div>
-            <div class="inputBox">
-                <input type="number" name="intevalo_ciclos" required="required">
+            <div   class = "inputBox">
+            <input type  = "number" name = "intevalo_ciclos" required = "required">
                 <span>Intervalo entre os dias</span>
                 <em></em>
             </div>
-            <div class="inputBox">
-                <input type="number" name="quantidade_ciclos" required="required" min="1">
+            <div   class = "inputBox">
+            <input type  = "number" name = "quantidade_ciclos" required = "required" min = "1">
                 <span>Quantidade de Ciclos</span>
                 <em></em>
             </div>
-            <input type="submit" value="Gerar datas">
+            <input type = "submit" value = "Gerar datas">
         </form>
     </div>
     <section>
-        <div class="box">
-            <div class="container">
-                <div id="dycalendar"></div>
+        <div class = "box">
+        <div class = "container">
+        <div id    = "dycalendar"></div>
             </div>
         </div>
     </section>
 
-    <script src="dycalendar.js"></script>
+    <script src = "dycalendar.js"></script>
     
     <script> 
         (async () => {
             dycalendar.draw({target: '#dycalendar',type: 'month',dayformat: 'full',prevnextbutton: 'show'})
             
-            const calendario   = document.querySelector("#dycalendar");
-            const formulario   = document.querySelector('form');
+            const calendario = document.querySelector("#dycalendar");
+            const formulario = document.querySelector('form');
 
             const validacaoData = (dt) => {
                 const validacao         = ['D', 'S', 'T', 'Q']
@@ -108,10 +108,10 @@
             formulario.addEventListener('submit',async event => {
                 event.preventDefault();
 
-                const data      = new FormData(formulario);
-                const response  = await fetch("/backend", { method: "post", body: data });
-                const person    = await response.json();
-                const lista     = document.querySelector('.lista');
+                const data     = new FormData(formulario);
+                const response = await fetch("/backend", { method: "post", body: data });
+                const person   = await response.json();
+                const lista    = document.querySelector('.lista');
 
                 if (person.status == false) {
                     alert(person.message)
@@ -122,11 +122,11 @@
                 lista.innerHTML = "";
 
                 person.forEach(data => {
-                    const dia   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[2] : data.datas_sem_acrecimos.split('-')[2];
-                    const mes   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[1] : data.datas_sem_acrecimos.split('-')[1];
-                    const ano   = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[0] : data.datas_sem_acrecimos.split('-')[0];
-                    const li  = document.createElement('li');
-                    li.innerText = "Data: " + `${dia}-${mes}-${ano}`;
+                    const dia          = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[2] : data.datas_sem_acrecimos.split('-')[2];
+                    const mes          = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[1] : data.datas_sem_acrecimos.split('-')[1];
+                    const ano          = (data.datas_acrecimos) ? data.datas_acrecimos.split('-')[0] : data.datas_sem_acrecimos.split('-')[0];
+                    const li           = document.createElement('li');
+                          li.innerText = "Data: " + `${dia}-${mes}-${ano}`;
                     lista.append(li);
                 })
                
@@ -140,7 +140,7 @@
             const close = document.querySelector("#close");
             close.addEventListener("click",function(){
                 const formulario = document.querySelector('form');
-                const lista = document.querySelector('.lista');
+                const lista      = document.querySelector('.lista');
                 formulario.classList.remove('none');
                 lista.classList.add('none');
                 window.location.href = "/";
