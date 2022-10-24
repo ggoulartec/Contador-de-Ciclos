@@ -11,7 +11,7 @@ if (!$data_inicial || !$intevalo_ciclos || !$quantidade_ciclos) {
     exit;
 }
 
-if($intevalo_ciclos < 0 || $quantidade_ciclos < 0) {
+if ($intevalo_ciclos < 0 || $quantidade_ciclos < 0) {
     $data['status'] = false;
     $data['message'] = "Valores negativos não são validos!";
     echo json_encode($data);
@@ -30,7 +30,7 @@ function generateDate($data_inicial, $nu_ciclos, $nu_prazo)
     $datas = array();
 
     foreach ($prazo as $chave => $data) {
-        if($chave != 0):
+        if ($chave != 0) :
             $diasemana_numero  = date('w', strtotime($data->format('Y-m-d')));
             $dados = array();
             $dados["datas_sem_acrecimos"] = $data->format('Y-m-d');
