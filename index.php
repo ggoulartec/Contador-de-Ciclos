@@ -15,8 +15,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendario</title>
-    <link rel="stylesheet" href="<?=url()?>:8080/dycalendar.css">
-    <link rel="stylesheet" href="<?=url()?>:8080/style.css">
+    <link rel="stylesheet" href="<?=url()?>/dycalendar.css">
+    <link rel="stylesheet" href="<?=url()?>/style.css">
     <style>
         .dycalendar-target-date-red {
             background: red;
