@@ -35,12 +35,12 @@
             <h2>Contador de Ciclos</h2>
             <div class="inputBox">
                 <input type="date" name="data_inicial" required="required" style="z-index: 1">
-                <span style="z-index: 1">Data início do Leilão</span>
+                <span style="z-index: 1">Data de inicio do prazo</span>
                 <em></em>
             </div>
             <div class="inputBox">
                 <input type="number" name="intevalo_ciclos" required="required">
-                <span>Intervalo entre os dias</span>
+                <span>Intervalo entre os cliclos</span>
                 <em></em>
             </div>
             <div class="inputBox">
