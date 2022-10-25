@@ -156,7 +156,7 @@ body {
     left: -50%;
     width: 380px;
     height: 420px;
-    background: linear-gradient(0deg, transparent, #ffc107, #e91e63);
+    background: linear-gradient(0deg, transparent, #fff, #000);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
 }
@@ -168,7 +168,7 @@ body {
     left: -50%;
     width: 380px;
     height: 420px;
-    background: linear-gradient(0deg, transparent, #2196f3, #31ff38);
+    background: linear-gradient(0deg, transparent, #2196f3, #000);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     animation-delay: -3s;
