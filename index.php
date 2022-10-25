@@ -97,7 +97,7 @@
                 event.preventDefault();
 
                 const data     = new FormData(formulario);
-                const response = await fetch("/backend", { method: "post", body: data });
+                const response = await fetch("/api-calendario.php", { method: "post", body: data });
                 const person   = await response.json();
                 const lista    = document.querySelector('.lista');
                 const close    = document.querySelector("#close");
