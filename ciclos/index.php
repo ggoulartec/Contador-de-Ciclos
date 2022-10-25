@@ -1,11 +1,22 @@
+<?php
+ function url(){
+    return sprintf(
+      "%s://%s%s",
+      isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+      $_SERVER['SERVER_NAME'],
+      $_SERVER['REQUEST_URI']
+    );
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <title>Calendario</title>
-    <link rel="stylesheet" href="dycalendar.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="<?=url()?>/dycalendar.css">
+    <link rel="stylesheet" href="<?=url()?>/style.css">
     <style>
         .dycalendar-target-date-red {
             background: red;
@@ -52,6 +63,8 @@
 
     <script>
         (async () => {
+            const urlbase= '<?=url()?>';
+
             dycalendar.draw({ target: '#dycalendar', type: 'month', dayformat: 'full', prevnextbutton: 'show' })
 
             const calendario = document.querySelector("#dycalendar");
@@ -97,7 +110,7 @@
                 event.preventDefault();
 
                 const data     = new FormData(formulario);
-                const response = await fetch("/api-calendario.php", { method: "post", body: data });
+                const response = await fetch(urlbase + "/api-calendario.php", { method: "post", body: data });
                 const person   = await response.json();
                 const lista    = document.querySelector('.lista');
                 const close    = document.querySelector("#close");
@@ -141,7 +154,7 @@
                 formulario.classList.remove('none');
                 lista.classList.add('none');
                 close.classList.add('none');
-                window.location.href = "/";
+                window.location.href = urlbase;
             })
         })();
     </script>
