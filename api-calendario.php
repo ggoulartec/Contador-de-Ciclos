@@ -24,6 +24,7 @@ function generateDate($data_inicial, $nu_ciclos, $nu_prazo)
     $diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado');
 
     $date = new DateTime($data_inicial);
+    $date->sub(new DateInterval('P1D'));
     $ciclo = new DateInterval('P' . $nu_ciclos . 'D');
     $prazo = new DatePeriod($date, $ciclo, $nu_prazo);
 

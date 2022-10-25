@@ -15,8 +15,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendario</title>
-    <link rel="stylesheet" href="<?=url()?>dycalendar.css">
-    <link rel="stylesheet" href="<?=url()?>style.css">
+    <link rel="stylesheet" href="<?=url()?>/dycalendar.css">
+    <link rel="stylesheet" href="<?=url()?>/style.css">
     <style>
         .dycalendar-target-date-red {
             background: red;
@@ -110,7 +110,7 @@
                 event.preventDefault();
 
                 const data     = new FormData(formulario);
-                const response = await fetch(urlbase + "api-calendario.php", { method: "post", body: data });
+                const response = await fetch(urlbase + "/api-calendario.php", { method: "post", body: data });
                 const person   = await response.json();
                 const lista    = document.querySelector('.lista');
                 const close    = document.querySelector("#close");
