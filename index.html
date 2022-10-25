@@ -9,7 +9,7 @@
     <style>
         .dycalendar-target-date-red {
             background: red;
-            color: #FFF !important;
+            color     : #FFF !important;
         }
     </style>
 </head>
@@ -21,17 +21,7 @@
             </ul>
 
             </ul>
-            <button id="close" class=" btn none" style="
-                position: absolute;
-                top     : 0px;
-                right   : 0px;
-                color   : #000;
-                z-index : 10;
-                cursor  : pointer;
-                width   : 82px;
-                height  : 40px;
-                ">voltar
-            </button>
+            <a href="#" id="close" class="btn"><span>voltar</span></a>
         </div>
         <form class="form">
             <h2>Contador de Ciclos</h2>
@@ -131,12 +121,12 @@
                     const li     = document.createElement('li');
                     li.innerText = "Data: " + `${dia}-${mes}-${ano}`;
 
-                    if(!data.datas_acrecimos){
+                    if (!data.datas_acrecimos) {
                         li.classList.add('white');
-                    }else{
+                    } else {
                         li.classList.add('red');
                     }
-                    
+
                     lista.append(li);
                 })
 
