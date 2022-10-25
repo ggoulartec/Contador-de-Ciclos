@@ -1,177 +1,177 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin     : 0;
+    padding    : 0;
+    box-sizing : border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 section {
-    position: absolute;
+    position : absolute;
     transform: translate(-200px);
 }
 
 /* section::before {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(#ffc107, #e91e63);
+    content      : '';
+    position     : absolute;
+    width        : 400px;
+    height       : 400px;
+    background   : linear-gradient(#ffc107, #e91e63);
     border-radius: 50%;
-    transform: translate(-320px, -120px);
+    transform    : translate(-320px, -120px);
 }
 
 section::after {
-    content: '';
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(#2196f3, #31ff38);
+    content      : '';
+    position     : absolute;
+    width        : 350px;
+    height       : 350px;
+    background   : linear-gradient(#2196f3, #31ff38);
     border-radius: 50%;
-    transform: translate(600px, -150px);
+    transform    : translate(600px, -150px);
 } */
 
 .box {
     position: relative;
-    z-index: 1000;
+    z-index : 1000;
 }
 
 .container {
-    position: relative;
-    width: 400px;
-    min-height: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position       : relative;
+    width          : 400px;
+    min-height     : 400px;
+    background     : rgba(255, 255, 255, 0.1);
+    box-shadow     : 0 25px 45px rgba(0, 0, 0, 0.1);
+    border         : 1px solid rgba(255, 255, 255, 0.5);
+    border-right   : 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom  : 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(25px);
-    border-radius: 10px;
-    display: flex;
+    border-radius  : 10px;
+    display        : flex;
     justify-content: center;
-    align-items: center;
+    align-items    : center;
 }
 
 .container-lista button {
-    width: 100%;
+    width : 100%;
     height: 100%;
 }
 
 #dycalendar {
-    width: 100%;
+    width  : 100%;
     padding: 20px;
 }
 
 #dycalendar table {
-    width: 100%;
-    margin-top: 40px;
+    width         : 100%;
+    margin-top    : 40px;
     border-spacing: 5px;
 }
 
 #dycalendar table tr:nth-child(1) td {
-    background: #fff;
-    color: #111;
+    background   : #fff;
+    color        : #111;
     border-radius: 4px;
-    font-weight: 600;
+    font-weight  : 600;
 }
 
 #dycalendar table td {
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
+    color        : #fff;
+    padding      : 10px;
+    cursor       : pointer;
     border-radius: 4px;
 }
 
 #dycalendar table td:hover {
     background: #fff;
-    color: #111 !important;
+    color     : #111 !important;
 }
 
 .dycalendar-month-container .dycalendar-today-date,
 .dycalendar-month-container .dycalendar-target-date {
     background: #fff;
-    color: #111 !important;
+    color     : #111 !important;
 }
 
 .dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.prev-btn {
-    background: #fff;
-    color: #111;
-    width: 44px;
-    height: 38px;
-    left: 4px;
-    border-radius: 4px;
-    display: flex;
+    background     : #fff;
+    color          : #111;
+    width          : 44px;
+    height         : 38px;
+    left           : 4px;
+    border-radius  : 4px;
+    display        : flex;
     justify-content: center;
-    align-items: center;
-    font-size: 24px;
+    align-items    : center;
+    font-size      : 24px;
 }
 
 .dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.next-btn {
-    background: #fff;
-    color: #111;
-    width: 44px;
-    height: 38px;
-    right: 4px;
-    border-radius: 4px;
-    display: flex;
+    background     : #fff;
+    color          : #111;
+    width          : 44px;
+    height         : 38px;
+    right          : 4px;
+    border-radius  : 4px;
+    display        : flex;
     justify-content: center;
-    align-items: center;
-    font-size: 24px;
+    align-items    : center;
+    font-size      : 24px;
 }
 
 .dycalendar-month-container .dycalendar-span-month-year {
-    color: #fff;
-    font-size: 1.5em;
+    color      : #fff;
+    font-size  : 1.5em;
     font-weight: 500;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background: url(bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    min-height         : 100vh;
+    overflow           : hidden;
+    background         : url(bg.jpg);
+    background-repeat  : no-repeat;
+    background-size    : cover;
     background-position: center;
 }
 
 .box2 {
-    position: relative;
-    width: 380px;
-    height: 503px;
-    background: #1c1c1c;
+    position     : relative;
+    width        : 380px;
+    height       : 503px;
+    background   : #1c1c1c;
     border-radius: 8px;
-    overflow: hidden;
-    transform: translate(200px);
-    z-index: 1;
+    overflow     : hidden;
+    transform    : translate(200px);
+    z-index      : 1;
 }
 
 .box2::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 380px;
-    height: 420px;
-    background: linear-gradient(0deg, transparent, #fff, #000);
+    content         : '';
+    position        : absolute;
+    top             : -50%;
+    left            : -50%;
+    width           : 380px;
+    height          : 420px;
+    background      : linear-gradient(0deg, transparent, #fff, #000);
     transform-origin: bottom right;
-    animation: animate 6s linear infinite;
+    animation       : animate 6s linear infinite;
 }
 
 .box2::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 380px;
-    height: 420px;
-    background: linear-gradient(0deg, transparent, #2196f3, #000);
+    content         : '';
+    position        : absolute;
+    top             : -50%;
+    left            : -50%;
+    width           : 380px;
+    height          : 420px;
+    background      : linear-gradient(0deg, transparent, #2196f3, #000);
     transform-origin: bottom right;
-    animation: animate 6s linear infinite;
-    animation-delay: -3s;
+    animation       : animate 6s linear infinite;
+    animation-delay : -3s;
 }
 
 @keyframes animate {
@@ -185,28 +185,28 @@ body {
 }
 
 .form {
-    position: absolute;
-    inset: 2px;
-    border-radius: 8px;
-    background: #001c38;
-    z-index: 10;
-    padding: 35px 40px;
-    display: flex;
+    position      : absolute;
+    inset         : 2px;
+    border-radius : 8px;
+    background    : #001c38;
+    z-index       : 10;
+    padding       : 35px 40px;
+    display       : flex;
     flex-direction: column;
 }
 
 .form h2 {
-    color: #fff;
-    font-weight: 500;
-    text-align: center;
+    color         : #fff;
+    font-weight   : 500;
+    text-align    : center;
     letter-spacing: 0.1em;
 }
 
 ul li {
-    color: #fff;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
+    color          : #fff;
+    font-size      : 20px;
+    display        : flex;
+    align-items    : center;
     justify-content: center;
 }
 
@@ -214,83 +214,92 @@ ul li {
     display: none;
 }
 
+.red {
+    color: red !important;
+}
+
+.white {
+    color: white !important;
+}
+
 .inputBox {
-    position: relative;
-    width: 300px;
+    position  : relative;
+    width     : 300px;
     margin-top: 35px;
 }
 
 .inputBox input {
-    position: relative;
-    width: 100%;
-    padding: 20px 10px 10px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #23242a;
-    font-size: 1em;
+    position      : relative;
+    width         : 100%;
+    padding       : 20px 10px 10px;
+    background    : transparent;
+    border        : none;
+    outline       : none;
+    color         : #23242a;
+    font-size     : 1em;
     letter-spacing: 0.05em;
-    z-index: 10;
+    z-index       : 10;
 }
+
 .inputBox input:focus-visible {
-    color: #fff;
+    color     : #fff;
     transition: 0.5s;
 }
 
 .inputBox span {
-    position: absolute;
-    left: 0;
-    padding: 20px 0px 10px;
-    font-size: 1em;
-    color: #a7a7a7;
+    position      : absolute;
+    left          : 0;
+    padding       : 20px 0px 10px;
+    font-size     : 1em;
+    color         : #a7a7a7;
     pointer-events: none;
     letter-spacing: 0.05em;
-    transition: 0.5s;
+    transition    : 0.5s;
 }
 
 .inputBox input:valid~span,
 .inputBox input:focus~span {
-    color: #45f3ff;
+    color    : #45f3ff;
     transform: translateX(0px) translateY(-34px);
     font-size: 0.75em;
 }
 
 .inputBox em {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #0d5dcc;
-    border-radius: 4px;
-    transition: 0.5s;
+    position      : absolute;
+    left          : 0;
+    bottom        : 0;
+    width         : 100%;
+    height        : 2px;
+    background    : #0d5dcc;
+    border-radius : 4px;
+    transition    : 0.5s;
     pointer-events: none;
 }
 
 .inputBox input:valid~em,
 .inputBox input:focus~em {
     height: 44px;
-    color: #fff;
+    color : #fff;
 }
 
 input[type="submit"] {
-    transform: translateY(50px);
-    border: none;
-    outline: none;
-    background: #0c62db;
-    padding: 11px 25px;
-    width: 300px;
-    margin-top: 10px;
+    transform    : translateY(50px);
+    border       : none;
+    outline      : none;
+    background   : #0c62db;
+    padding      : 11px 25px;
+    width        : 300px;
+    margin-top   : 10px;
     border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
+    font-weight  : 600;
+    cursor       : pointer;
+    transition   : 0.5s ease-in-out;
 }
 
 input[type="submit"]:hover {
     letter-spacing: 0.5em;
-    color: #0c62db;
-    background: #1c1c1c;
+    color         : #0c62db;
+    background    : #1c1c1c;
 }
 
 @media (max-width: 1280px) {
