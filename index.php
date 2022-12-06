@@ -15,8 +15,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendario</title>
-    <link rel="stylesheet" href="<?=url()?>/dycalendar.css">
-    <link rel="stylesheet" href="<?=url()?>/style.css">
+    <link rel="stylesheet" href="<?=url()?>/assets/css/dycalendar.css">
+    <link rel="stylesheet" href="<?=url()?>/assets/css/style.css">
     <style>
         .dycalendar-target-date-red {
             background: red;
@@ -59,7 +59,7 @@
         </div>
     </section>
 
-    <script src="dycalendar.js"></script>
+    <script src="assets/js/dycalendar.js"></script>
 
     <script>
         (async () => {
