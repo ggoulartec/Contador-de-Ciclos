@@ -322,12 +322,12 @@ input[type="submit"]:hover {
 
 .btn span {
     position: relative;
-    z-index: 10;
+    z-index : 10;
 }
 
 :root {
-    --main-color: #0c62db;
-    --black: #000;
-    --white: #fff;
+    --main-color  : #0c62db;
+    --black       : #000;
+    --white       : #fff;
     --default-font: 'Poppins', sans-serif;
 }

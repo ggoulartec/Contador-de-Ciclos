@@ -19,6 +19,31 @@ if ($intevalo_ciclos < 0 || $quantidade_ciclos < 0) {
 }
 
 
+function getFeriados($data) {
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://api.invertexto.com/v1/holidays/2022?token=2076%7CTe1NXEbrla6sEFN7nH2wcmE1FJH8u71K&state=PR',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+    ));
+
+    $feriados = curl_exec($curl);
+    curl_close($curl);
+
+    foreach ($feriados as $key => $feriado) {
+        if ($data->format('Y-m-d') == $feriado->date){
+
+        }
+    }
+}
+
+
 function generateDate($data_inicial, $nu_ciclos, $nu_prazo)
 {
     $diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado');
@@ -35,6 +60,8 @@ function generateDate($data_inicial, $nu_ciclos, $nu_prazo)
             $diasemana_numero  = date('w', strtotime($data->format('Y-m-d')));
             $dados = array();
             $dados["datas_sem_acrecimos"] = $data->format('Y-m-d');
+
+
 
             if ($diasemana[$diasemana_numero] == "Sabado") :
                 $newDate = new DateTime($dados["datas_sem_acrecimos"]);
@@ -55,19 +82,3 @@ function generateDate($data_inicial, $nu_ciclos, $nu_prazo)
 };
 
 echo json_encode(generateDate($data_inicial, $intevalo_ciclos, $quantidade_ciclos));
-
-$curl = curl_init();
-
-//curl_setopt_array($curl, array(
-//    CURLOPT_URL => 'https://api.invertexto.com/v1/holidays/2022?token=2076%7CTe1NXEbrla6sEFN7nH2wcmE1FJH8u71K&state=PR',
-//    CURLOPT_RETURNTRANSFER => true,
-//    CURLOPT_ENCODING => '',
-//    CURLOPT_MAXREDIRS => 10,
-//    CURLOPT_TIMEOUT => 0,
-//    CURLOPT_FOLLOWLOCATION => true,
-//    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//    CURLOPT_CUSTOMREQUEST => 'GET',
-//));
-//
-//$response = curl_exec($curl);
-//curl_close($curl);
